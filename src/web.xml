@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+	<display-name>a-druid-demo</display-name>
+
+  
+  
+	<!-- 配置 Druid 监控信息显示页面 -->  
+	<servlet>  
+	    <servlet-name>DruidStatView</servlet-name>  
+	    <servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>  
+	    <init-param>  
+		    <!-- 允许清空统计数据 -->  
+		    <param-name>resetEnable</param-name>  
+		    <param-value>true</param-value>  
+	    </init-param>  
+		<!-- 不要密码的话，直接进入 -->
+	    <init-param>  
+		    <!-- 用户名 -->  
+		    <param-name>loginUsername</param-name>  
+		    <param-value>admin</param-value>  
+	    </init-param>  
+	    <init-param>  
+		    <!-- 密码 -->  
+		    <param-name>loginPassword</param-name>  
+		    <param-value>123456</param-value>  
+	    </init-param>  
+	</servlet>  
+	<servlet-mapping>  
+	    <servlet-name>DruidStatView</servlet-name>  
+	    <url-pattern>/druid/*</url-pattern>  
+	</servlet-mapping>
+</web-app>
